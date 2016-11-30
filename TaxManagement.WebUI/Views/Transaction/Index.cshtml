@@ -1,0 +1,52 @@
+﻿@using TaxManagement.Entities;
+@using GridMvc.Html;
+@model IList<TransactionDto>
+
+@{
+    ViewBag.Title = "Transactions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Transactions</h2>
+
+
+
+<div class="row">
+    @Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(data => data.Account)
+    .Titled("Account")
+    .Filterable(true)
+    .SetWidth(100);
+
+    columns.Add(data => data.Description)
+        .Titled("Description")
+        .Filterable(true)
+        .SetWidth(235);
+
+    columns.Add(data => data.CurrencyCode)
+        .Titled("Currency")
+        .Filterable(true)
+        .SetWidth(100);
+
+    columns.Add(data => data.Amount)
+        .Titled("Amount")
+        .Filterable(true)
+        .SetWidth(250);
+
+    columns.Add()
+        .Titled("Edit")
+        .SetWidth(50)
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(o => Html.ActionLink("Edit", "Edit", new { id = o.Id }));
+    
+    columns.Add()
+       .Titled("Delete")
+       .SetWidth(50)
+       .Encoded(false)
+       .Sanitized(false)
+       .RenderValueAs(o => Html.ActionLink("Delete", "Delete", new { id = o.Id }));
+    
+}).WithPaging(25).Sortable(true)
+</div>
