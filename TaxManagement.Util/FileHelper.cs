@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using TaxManagement.Entities;
 
 namespace TaxManagement.Util
@@ -16,13 +17,14 @@ namespace TaxManagement.Util
                 decimal amount = 0;
                 //skip header
                 sr.ReadLine();
+                Regex csvParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
                 while (!sr.EndOfStream)
                 {
                     rowNumber++;
                     transaction = new TransactionDto();
                     try
                     {
-                        string[] rows = sr.ReadLine().Split(',');
+                        string[] rows = csvParser.Split(sr.ReadLine()); 
                         if (rows.Length == 4)
                         {
                             if (String.IsNullOrEmpty(rows[0]))
