@@ -2,17 +2,13 @@ Welcome to Tax Management System!
 ===================
 
 
-Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
-
-----------
-
-
 How to Setup
 -------------
 
 Download the solution to a local folder on your machine, open it with visual studio 2013 (might have to be update 5 as that's the one I'm working on).
 
-> **Note:**
+> **Notes:**
+> - Please, notice that this project was created using **.Net Framework 4.6.1**
 > - After downloading the solution, navigate to **Resources\Scripts** folder inside the root folder and run **Database.sql** on Sql Server Management Studio in order to create the database structure needed for this project.
 > - Visual studio will install all dependencies required when it first build the app.
 > - No error handling in the application due to lack of time.
